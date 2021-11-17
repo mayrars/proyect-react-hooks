@@ -1,22 +1,24 @@
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import PropTypes from 'prop-types';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import PropTypes from "prop-types";
 
-import Home from './pages/Home';
+import Home from "./pages/Home";
 
-const App = ({ store }) => (
-	<Provider store={store}>
-		<Router>
-			<div>
-				<Route exact path="/" component={Home} />
-			</div>
-		</Router>
-	</Provider>
-);
+const App = ({ store }) => {
+  return (
+    <Provider store={store}>
+      <Router>
+		  <Routes>
+			<Route exact path="/" element={<Home />} />
+		  </Routes>
+      </Router>
+    </Provider>
+  );
+};
 
 App.propTypes = {
-	store: PropTypes.object.isRequired
+  store: PropTypes.object.isRequired,
 };
 
 export default App;
